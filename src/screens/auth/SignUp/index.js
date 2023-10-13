@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { Text, View } from "react-native"
-import AuthHeader from "../../../components/AuthHeader"
 import Button from "../../../components/Button"
 import Checkbox from "../../../components/Checkbox"
 import GoogleLogin from "../../../components/GoogleLogin"
@@ -8,17 +7,11 @@ import Input from "../../../components/Input"
 import Separator from "../../../components/Separator"
 import { styles } from "./styles"
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
   const [checked, setChecked] = useState(false);
-
-  const onSignIn = () => {
-    console.log('hey');
-  };
   
   return (
-    <View style={styles.container}>
-        <AuthHeader title="Sign Up" />
-        
+    <View style={styles.container}>        
         <View style={styles.inputContainer}>
           <Input label="Name" placeholder="John Doe"/>
           <Input label="E-mail" placeholder="example@gmail.com"/>
@@ -38,7 +31,7 @@ const SignUp = () => {
 
         <Text style={styles.loginText}> 
           Already have an account? 
-          <Text activeOpacity={0.6} onPress={onSignIn} style={styles.loginTextBold}> Sign in</Text>
+          <Text onPress={() => navigation.navigate("SignUp")} style={styles.loginTextBold}> Sign in</Text>
         </Text>
     </View>
   )
