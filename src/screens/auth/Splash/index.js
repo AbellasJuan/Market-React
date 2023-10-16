@@ -4,7 +4,6 @@ import Button from "../../../components/Button";
 import { styles } from "./styles";
 
 const Splash = ({navigation}) => {
-  console.log("NAVIGATION:" , navigation)
   return(
     <View style={styles.container}>
       <Image resizeMode='contain' style={styles.image} source={require('../../../assets/splash_image.png')} />
