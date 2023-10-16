@@ -1,40 +1,42 @@
-import React, { useState } from "react"
-import { Text, View } from "react-native"
-import AuthHeader from "../../../components/AuthHeader"
-import Button from "../../../components/Button"
-import GoogleLogin from "../../../components/GoogleLogin"
-import Input from "../../../components/Input"
-import Separator from "../../../components/Separator"
-import { styles } from "./styles"
+import React from 'react';
+import { ScrollView, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import AuthHeader from '../../../components/AuthHeader';
+import Button from '../../../components/Button';
+import GoogleLogin from '../../../components/GoogleLogin';
+import Input from '../../../components/Input';
+import Separator from '../../../components/Separator';
+import { styles } from './styles';
 
-const SignIn = () => {
-  const [checked, setChecked] = useState(false);
-
-  const onSignIn = () => {
-    console.log('hey');
-  };
-  
+const SignIn = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-        <AuthHeader title="Sign In" />
-        
+    <SafeAreaView>
+      <ScrollView style={styles.container}>
+        <AuthHeader title="Sign In" onBackPress={() => navigation.goBack()} />
         <View style={styles.inputContainer}>
-          <Input label="E-mail" placeholder="example@gmail.com"/>
-          <Input label="Password" placeholder="*********" isPassword={true}/>
+          <Input label="E-mail" placeholder="example@gmail.com" />
+          <Input label="Password" placeholder="*********" isPassword={true} />
         </View>
 
         <Button title="Sign In" style={styles.button} />
-        
-        <Separator/>
 
-        <GoogleLogin/>
+        <Separator />
 
-        <Text style={styles.loginText}> 
-          Don't have an account? 
-          <Text activeOpacity={0.6} onPress={onSignIn} style={styles.loginTextBold}> Sign up</Text>
+        <GoogleLogin />
+
+        <Text style={styles.loginText}>
+          Don't have an account?
+          <Text
+            activeOpacity={0.6}
+            onPress={() => navigation.navigate('SignUp')}
+            style={styles.loginTextBold}>
+            {' '}
+            Sign up
+          </Text>
         </Text>
-    </View>
-  )
-}
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
 export default SignIn;

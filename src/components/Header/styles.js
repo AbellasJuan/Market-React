@@ -5,16 +5,18 @@ export const styles = StyleSheet.create ({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 20,
+    justifyContent: "space-between",
   },
-  image: {
-    width: 18,
-    height: 18,
+  icon: {
+    width: 24,
+    height: 24,
   },
   title: {
-    paddingLeft: 16,
-    fontSize: 26,
+    fontSize: 16,
     fontWeight: "500",
-    color: colors.blue
+    color: colors.black
+  },
+  space:{
+    width: 24,
   }
 });

@@ -3,11 +3,12 @@ import { colors } from "../../../utils/colors";
 
 export const styles = StyleSheet.create({
   container: {
+    padding: 20,
     minHeight: '100%',
   },
   inputContainer:{
-    gap: 15,
-    marginTop: 70,
+    gap: 13,
+    marginTop: 0,
   },
   agreeRow:{
     marginTop: 20,
