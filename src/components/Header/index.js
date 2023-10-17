@@ -31,9 +31,10 @@ const Header = ({title, onBackPress, onSearch, onLogout, showLogout, showSearch,
       </Pressable>
       ) : <View style={styles.space} />}
     </View>
-      {showSearchInput ?(
+      {showSearchInput ? 
+      (
         <Input placeholder="Type your keyword..." />
-      ): null}
+      ) : null}
 
     </View>
   );
