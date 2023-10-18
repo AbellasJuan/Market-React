@@ -5,7 +5,6 @@ export const styles = StyleSheet.create ({
   container: {
    marginHorizontal: 8,
    marginBottom: 25,
-   backgroundColor: colors.black,
   },
   title: {
     textAlign: 'center',
@@ -17,7 +16,6 @@ export const styles = StyleSheet.create ({
   },
   imageContainer: {
     alignItems: 'center',
-    backgroundColor: colors.lightGrey,
     padding: 8,
   },
 });

@@ -9,28 +9,40 @@ import { products } from '../../../data/products';
 import { styles } from './styles';
 
 const Home = () => {
-
-  const renderCategoyItem = ({item, index}) => {
-    return (
-      <CategoryBox title={item?.title} image={item?.image}></CategoryBox>
-    )
+  const renderCategoyItem = ({ item }) => {
+    return <CategoryBox title={item?.title} image={item?.image}></CategoryBox>;
   };
 
-  const renderProductHomeItem = ({item, index}) => {
-    return (
-      <ProductHomeItem title={item?.title} image={item?.image} price={item?.price}></ProductHomeItem>
-    )
+  const renderProductHomeItem = ({ item }) => {
+    return <ProductHomeItem {...item}></ProductHomeItem>;
   };
 
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <Header title="Find All You Need" showLogout={false} showSearch={true}/>
-        <FlatList showsHorizontalScrollIndicator={false} style={styles.list} horizontal data={categories} renderItem={renderCategoyItem} keyExtractor={(item, index) => String(index)}></FlatList>
-        <FlatList style={styles.products} data={products} renderItem={renderProductHomeItem} keyExtractor={(item, index) => String(index)}></FlatList>
+        <Header
+          title="Find All You Need"
+          showLogout={false}
+          showSearch={true}
+        />
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          style={styles.list}
+          horizontal
+          data={categories}
+          renderItem={renderCategoyItem}
+          keyExtractor={(item, index) => String(index)}></FlatList>
+        <FlatList
+          style={styles.products}
+          numColumns={2}
+          data={products}
+          renderItem={renderProductHomeItem}
+          keyExtractor={item => String(item.id)}
+          ListFooterComponent={<View style={{ height: 350 }}></View>}
+        />
       </View>
     </SafeAreaView>
-  )
+  );
 };
 
 export default Home;
