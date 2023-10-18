@@ -8,11 +8,9 @@ export const styles = StyleSheet.create ({
     marginHorizontal: 10,
   },
   title: {
-    paddingLeft: 10,
     paddingVertical: 3,
   },
   price: {
-    paddingLeft: 10,
     paddingBottom: 15,
   },
   image:{
