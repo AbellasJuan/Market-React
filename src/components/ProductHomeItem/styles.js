@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { colors } from "../../utils/colors";
 
 const {width, height} = Dimensions.get('window');
 console.log('LARGURA E ALTURA: ',width, height)
@@ -12,6 +13,7 @@ export const styles = StyleSheet.create ({
   },
   price: {
     paddingBottom: 15,
+    color: colors.black
   },
   image:{
     width: (width-64)/2,
