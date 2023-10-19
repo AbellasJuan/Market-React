@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlatList, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CategoryBox from '../../../components/CategoryBox';
@@ -9,8 +9,21 @@ import { products } from '../../../data/products';
 import { styles } from './styles';
 
 const Home = () => {
+
+  const [selectedCategory, setSelectedCategory] = useState();
+  const [filteredProducts, setFilteredProducts] = useState(products);
+
+  useEffect(() => {
+    if (selectedCategory) {
+      console.log('selectedCategory', selectedCategory)
+      setFilteredProducts(products.filter(product => product.category === selectedCategory));
+    } else {
+      setFilteredProducts(products);
+    }
+  }, [selectedCategory]);
+
   const renderCategoyItem = ({ item }) => {
-    return <CategoryBox title={item?.title} image={item?.image}></CategoryBox>;
+    return <CategoryBox onPress={() => setSelectedCategory(item?.id)} isSelected={item?.id === selectedCategory} title={item?.title} image={item?.image}></CategoryBox>;
   };
 
   const renderProductHomeItem = ({ item }) => {
@@ -35,7 +48,7 @@ const Home = () => {
         <FlatList
           style={styles.products}
           numColumns={2}
-          data={products}
+          data={filteredProducts}
           renderItem={renderProductHomeItem}
           keyExtractor={item => String(item.id)}
           ListFooterComponent={<View style={{ height: 350 }}></View>}
