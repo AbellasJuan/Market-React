@@ -6,7 +6,6 @@ console.log('LARGURA E ALTURA: ',width, height)
 
 export const styles = StyleSheet.create ({
   container: {  
-    backgroundColor: colors.black,
     marginHorizontal: 10,
   },
   title: {

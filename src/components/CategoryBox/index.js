@@ -9,7 +9,7 @@ const CategoryBox = ({ title, image, onPress, isSelected }) => {
       <View
         style={[
           styles.imageContainer,
-          isSelected && { backgroundColor: colors.black },
+          isSelected && { backgroundColor: colors.lightGrey },
         ]}>
         <Image source={{ uri: image }} style={styles.image} />
       </View>
