@@ -1,7 +1,5 @@
 import { StyleSheet } from "react-native";
 
-
-
 export const styles = StyleSheet.create({
     container: {
         padding: 12,
@@ -10,7 +8,6 @@ export const styles = StyleSheet.create({
         marginTop: 22,
     },
     products: {
-        marginVertical: 2,
-        display: 'flex',
+        marginTop: 22,
     }
 })

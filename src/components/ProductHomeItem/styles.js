@@ -5,7 +5,8 @@ const {width, height} = Dimensions.get('window');
 console.log('LARGURA E ALTURA: ',width, height)
 
 export const styles = StyleSheet.create ({
-  container: {
+  container: {  
+    backgroundColor: colors.black,
     marginHorizontal: 10,
   },
   title: {
