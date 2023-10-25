@@ -11,6 +11,7 @@ import SignIn from './src/screens/auth/SignIn';
 import SignUp from './src/screens/auth/SignUp';
 import Splash from './src/screens/auth/Splash';
 
+import ProductDetails from './src/screens/app/ProductDetails';
 import { colors } from './src/utils/colors';
 
 const Stack = createNativeStackNavigator();
@@ -18,32 +19,36 @@ const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
   return (
-    <Tab.Navigator 
-      screenOptions={({ route }) => ({ 
-        
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let icon;
-          
+
           if (route.name === 'Home') {
-            icon = focused ? require('./src/assets/home-active.png') : require('./src/assets/home.png');
+            icon = focused
+              ? require('./src/assets/home-active.png')
+              : require('./src/assets/home.png');
           } else if (route.name === 'Favorites') {
-            icon = focused ? require('./src/assets/marker-active.png') : require('./src/assets/marker.png');
+            icon = focused
+              ? require('./src/assets/marker-active.png')
+              : require('./src/assets/marker.png');
           } else if (route.name === 'Profile') {
-            icon = focused ? require('./src/assets/profile-active.png') : require('./src/assets/profile.png');
+            icon = focused
+              ? require('./src/assets/profile-active.png')
+              : require('./src/assets/profile.png');
           }
-    return <Image style={{ width: 24, height: 24 }} source={icon} />;
-  },
-  headerShown: false,
-  tabBarShowLabel: false,
-  tabBarStyle: {
-    backgroundColor: colors.white,
-    borderTopWidth: 1,
-    borderTopColor: colors.grey,
-    paddingLeft: 50,
-    paddingRight: 50,
-  },
-})}
-    >
+          return <Image style={{ width: 24, height: 24 }} source={icon} />;
+        },
+        headerShown: false,
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          backgroundColor: colors.white,
+          borderTopWidth: 1,
+          borderTopColor: colors.grey,
+          paddingLeft: 50,
+          paddingRight: 50,
+        },
+      })}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Favorites" component={Favorites} />
       <Tab.Screen name="Profile" component={Profile} />
@@ -63,13 +68,18 @@ function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={whiteTheme}>
-        <Stack.Navigator >
+        <Stack.Navigator>
           {isSignedIn ? (
             <>
               <Stack.Screen
-              
                 name="Tabs"
                 component={Tabs}
+                options={{ headerShown: false }}
+              />
+
+              <Stack.Screen
+                name="ProductDetails"
+                component={ProductDetails}
                 options={{ headerShown: false }}
               />
             </>
@@ -80,7 +90,7 @@ function App() {
                 component={Splash}
                 options={{ headerShown: false }}
               />
-              <Stack.Screen
+              <Stack.Screexn
                 name="SignIn"
                 component={SignIn}
                 options={{ headerShown: false }}

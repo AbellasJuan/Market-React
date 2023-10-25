@@ -1,14 +1,16 @@
 import React from "react";
-import { ScrollView } from "react-native";
+import { Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "./styles";
 
-const ProductDetails = () => {
+const ProductDetails = ({route}) => {
+
+  const {product} = route?.params || {};
 
   return(
     <SafeAreaView>
       <ScrollView style={styles.container}>
-        <Text>Product Details</Text>
+        <Image source={{uri: product?.image}} style={styles.image}/>
       </ScrollView>
     </SafeAreaView>
   );
